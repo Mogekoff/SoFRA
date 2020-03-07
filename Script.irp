@@ -1,0 +1,33 @@
+#iNTER
+
+# QSort и Гномья сортировки зацикливаются при рандомных числах.
+# В случае гномьей это происходит из-за того, что например при массиве 6 5 5 и сравнении [i-1]>[i]
+# функция Compare будет всегда возвращать false. Например, находимся посередине, на пятерке.
+# Т.к. 5>5 даст false, то программа пойдёт по ветке else и шагнет назад (i--).
+# Далее 6>5 даст True, шагнет вперед. И мы опять упремся в 5 > 5.
+# Кстати, эти комментарии интепретатор игнорирует
+
+# По возрастанию
+SETMOD 0
+FR; SWAP.SIMPLE
+FR; SWAP.ODDEVEN
+FR; SWAP.COMB
+FW; SWAP.DWARF
+FW; SWAP.QSORT
+FR; SWAP.SHAKER
+FR; SELECTION.SIMPLE
+#FR; SELECTION.QUADRATIC
+FR; SELECTION.PYRAMID
+
+# По убыванию
+SETMOD 1
+FR; SWAP.SIMPLE
+FR; SWAP.ODDEVEN
+FR; SWAP.COMB
+FB; SWAP.DWARF
+FW; SWAP.QSORT
+FR; SWAP.SHAKER
+FR; SELECTION.SIMPLE
+#FR; SELECTION.QUADRATIC
+FR; SELECTION.PYRAMID
+

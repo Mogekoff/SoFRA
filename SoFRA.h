@@ -23,6 +23,7 @@ private:
 
     void Swap(T& a, T& b);
     bool Compare(T a, T b);
+    void Assign(T& a, const T b);
 
 public:
     

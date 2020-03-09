@@ -1,10 +1,6 @@
 ﻿#include "iNTER.h"
 #include "SoFRA.h"
 
-void sum(int a, int b) {
-    iNTER::Print(to_string(a+b));
-}
-
 int main(int argc, char* argv[]) {
     srand(time(0));
     setlocale(LC_ALL, "Russian");
@@ -13,7 +9,7 @@ int main(int argc, char* argv[]) {
 
     SoFRA<int> SF;
 
-    const int Size = 11;
+    const int Size = 15;
 
     SF.CreateArray(Size);
     SF.SetSortMod(SF.ASCENDING);
@@ -65,12 +61,15 @@ int main(int argc, char* argv[]) {
     I.AddFunction("SETMOD", "Set mode of sorting algorithm: ASCENDING = 0, DESCENDING = 1, NONASCENDING = 2, NONDESCENDING = 3. Example: \"SETMOD 2\"",
         [&]() { SF.SetSortMod(I.GetArgInt()); });
 
-    I.AddFunction("SUM", "Sum of A and B. Example: \"SUM 3 5\" returns 8", [&I](){sum(I.GetArgInt(), I.GetArgInt(1));});
-    
-    //I.ExecuteCommand("FW");
-    //I.ExecuteCommand("SELECTION.QUADRATIC");
-    
-    I.ExecuteScript("Script.irp");
+    I.ExecuteCommand("FR");
+    I.ExecuteCommand("SELECTION.PYRAMID");
+    I.ExecuteCommand("FW");
+    I.ExecuteCommand("SELECTION.QUADRATIC");
+    I.ExecuteCommand("FR");
+    I.ExecuteCommand("SELECTION.QUADRATIC");
+    I.ExecuteCommand("FB");
+    I.ExecuteCommand("SELECTION.QUADRATIC");
+    //I.ExecuteScript("Script.irp");
     
 
     return I.Interpreter();

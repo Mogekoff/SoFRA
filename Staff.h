@@ -17,6 +17,11 @@ template <typename T> void SoFRA<T>::Swap(T& A, T& B) {
     Movements += 3;
 }
 
+template <typename T> void SoFRA<T>::Assign(T& a, const T b) {
+    Movements++;
+    a = b;
+}
+
 template <typename T> void SoFRA<T>::PrintArray() {
     string ArrayString;
     for (int i = 0; i < Size; i++)
